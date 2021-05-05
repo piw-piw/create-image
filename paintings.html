@@ -7,8 +7,15 @@
   <body align="center">
     Napis: <input type="text"></input>
     <br>
-    <canvas id="img" width="700" height="500" style="border:1px solid #000000;"></canvas>
-    
+    <canvas id="img" width="700" height="500" style="border:1px solid #000000;">Tu niestety to nie działa</canvas>
+  
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillText("Hello World",10,50);
+    </script>
+
     
     
   </body>
