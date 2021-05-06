@@ -5,7 +5,7 @@
     
   </head>
   <body align="center">
-    Napis: <input type="text" value="działa, czy nie?"></input>
+    Napis: <input type="text" id="t" value="działa, czy nie?"></input>
     <br>
     <canvas id="img" width="700" height="500" style="border:1px solid #000000;">Tu niestety to nie działa</canvas>
   
@@ -13,11 +13,11 @@
       var c = document.getElementById("img");
       var ctx = c.getContext("2d");
       ctx.font = "30px Arial";
-      ctx.fillText("gggg",10,50);
-      window.alert("hej!")
+      //ctx.fillText("gggg",10,50);
+      //window.alert("hej!")
     </script>
 
-    
+    <button type="button" onclick="ctx.fillText(document.getElementById("t").innerHTML,10,50);">Zrób</button>
     
   </body>
 </html>
