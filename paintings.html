@@ -13,11 +13,14 @@
       var c = document.getElementById("img");
       var ctx = c.getContext("2d");
       ctx.font = "30px Arial";
-      //ctx.fillText("gggg",10,50);
-      //window.alert("hej!")
+
+      //ctx.fillText("test",50,50);
+
+      var textInput = document.getElementById('t').value;
     </script>
+
     <br>
-    <button type="button" onclick="ctx.fillText(document.getElementById(t).innerHTML,10,50)">Zrób</button>
-    e
+    <button type="button" onclick="textInput = document.getElementById('t').value; ctx.fillText(textInput,10,50)">Zrób</button>
+    
   </body>
 </html>
