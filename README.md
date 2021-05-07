@@ -1,1 +1,1 @@
-# scratch-image
+# create-image
