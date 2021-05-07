@@ -2,29 +2,48 @@
 <html>
   <head>
     <title>obrazki</title>
-    
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body align="center">
-    Napis: <input type="text" id="t" value="działa, czy nie?"></input>
-    X: <input type="number" id="tx" value="10"></input>
-    Y: <input type="number" id="ty" value="50"></input>
+ <body align="center">
+    <input type="file" accept="image/*" disabled="true">
+    <hr>
+  
+    Napis: <input type="text" id="t" value="działa, czy nie?">
+    X: <input type="number" id="tx" value="10" min="0" max="680">
+    Y: <input type="number" id="ty" value="50" min="25" max="495">
     <br>
+
+
     <canvas id="img" width="700" height="500" style="border:1px solid #000000;">Tu niestety to nie działa</canvas>
   
     <script>
-      var c = document.getElementById("img");
-      var ctx = c.getContext("2d");
-      ctx.font = "30px Arial";
+      var cav = document.getElementById("img").getContext("2d");
+      cav.font = "30px Arial";
 
-      //ctx.fillText("test",50,50);
+      //cav.fillText("test",50,50);
 
       var textInput = document.getElementById('t').value;
       var x = document.getElementById('tx').value;
       var y =document.getElementById('ty').value;
+      
+      function paint() {
+        textInput = document.getElementById('t').value;
+        x = document.getElementById('tx').value;
+        y = document.getElementById('ty').value;
+        cav.fillText(textInput,x,y);
+        
+      }
     </script>
 
     <br>
-    <button type="button" onclick="textInput = document.getElementById('t').value; x = document.getElementById('tx').value; y = document.getElementById('ty').value; ctx.fillText(textInput,x,y)">Zrób</button>
-    
+    <button type="button" onclick="paint()">Zrób</button>
+    <button type="button" onclick="cav.clearRect(0, 0, img.width, img.height);" accesskey="R">Reset</button>
+    <hr>inne niedziałające rzeczy<br>
+    <select>
+      <option>Ja</option>
+      <option>Ty</option>
+      <option>On/Ona/Ono</option>
+    </select>
+
   </body>
 </html>
