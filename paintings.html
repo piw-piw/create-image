@@ -8,9 +8,9 @@
     <input type="file" accept="image/*" disabled="true">
     <hr>
   
-    Napis: <input type="text" id="t" value="działa, czy nie?">
-    X: <input type="number" id="tx" value="10" min="0" max="680">
-    Y: <input type="number" id="ty" value="50" min="25" max="495">
+    Napis: <input type="text" id="t" value="działa, czy nie?" onchange="re()">
+    X: <input type="number" id="tx" value="10" min="0" max="680" onchange="re()">
+    Y: <input type="number" id="ty" value="50" min="25" max="495" onchange="re()">
     <br>
 
 
@@ -31,7 +31,11 @@
         x = document.getElementById('tx').value;
         y = document.getElementById('ty').value;
         cav.fillText(textInput,x,y);
-        
+      }
+      
+      function re() {	/*nie dziala?*/
+        cav.clearRect(0, 0, img.width, img.height);
+        paint();
       }
     </script>
 
@@ -42,7 +46,7 @@
     <select>
       <option>Ja</option>
       <option>Ty</option>
-      <option>On/Ona/Ono</option>
+      <option>On/Ona/Ono</option
     </select>
 
   </body>
