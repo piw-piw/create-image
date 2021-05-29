@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
  <body align="center">
-    <input type="file" accept="image/*" disabled="true">
-    <hr>
-  
     Napis: <input type="text" id="t" value="działa, czy nie?" onchange="re()">
     X: <input type="number" id="tx" value="10" min="0" max="680" onchange="re()">
     Y: <input type="number" id="ty" value="50" min="25" max="495" onchange="re()">
@@ -19,8 +16,6 @@
     <script>
       var cav = document.getElementById("img").getContext("2d");
       cav.font = "30px Arial";
-
-      //cav.fillText("test",50,50);
 
       var textInput = document.getElementById('t').value;
       var x = document.getElementById('tx').value;
@@ -42,13 +37,6 @@
     <br>
     <button type="button" onclick="paint()">Zrób</button>
     <button type="button" onclick="cav.clearRect(0, 0, img.width, img.height);" accesskey="R">Reset</button>
-    <hr>inne niedziałające rzeczy<br>
-    <select>
-      <option>Ja</option>
-      <option>Ty</option>
-      <option>On/Ona/Ono</option
-    </select>
-
         <br><a href="https://github.com/piw-piw/create-image">GitHub</a>
   </body>
 </html>
