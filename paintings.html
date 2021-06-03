@@ -4,27 +4,48 @@
     <title>obrazki</title>
     <link rel="stylesheet" href="style.css">
   </head>
- <body align="center">
-    Napis: <input type="text" id="t" value="działa, czy nie?" onchange="re()">
-    X: <input type="number" id="tx" value="10" min="0" max="680" onchange="re()">
-    Y: <input type="number" id="ty" value="50" min="25" max="495" onchange="re()">
-    <br>
-
-
-    <canvas id="img" width="700" height="500" style="border:1px solid #000000;">Tu niestety to nie działa</canvas>
+ <body align="center" onload="re();">
+   <input type="file" accept="image/*" disabled>
+   <hr>
   
+   Napis: <input type="text" id="t" value="działa, czy nie?" onchange="re()">
+   X: <input type="number" id="tx" value="10" min="0" max="680" step="10" onchange="re()">
+   Y: <input type="number" id="ty" value="50" min="25" max="495" step="10" onchange="re()">
+   Rozmiar: <input type="number" id="ts" value="30" min="0" max="400" step="5" onchange="re()">
+   Kolor: <input type="color" id="tc" onchange="re()">
+   <br>
+
+
+   <canvas id="img" width="700" height="500" style="border:1px solid #000000;">Tu niestety to nie działa</canvas>
+        <!--700 500-->
     <script>
       var cav = document.getElementById("img").getContext("2d");
       cav.font = "30px Arial";
+      
+      /**
+      * zmien wielkosc canvansa zmieniajac tu rozmiar
+      * i klikajac przycisk 'nie klikać'
+      */
+      function po() {
+        /*cav.font = "60px Arial";*/
+        document.getElementById('img').height = 384;
+        document.getElementById('img').width = 384;
+      }
+
+      
+      //cav.fillText("test",50,50);
 
       var textInput = document.getElementById('t').value;
       var x = document.getElementById('tx').value;
-      var y =document.getElementById('ty').value;
+      var y = document.getElementById('ty').value;
       
       function paint() {
         textInput = document.getElementById('t').value;
         x = document.getElementById('tx').value;
         y = document.getElementById('ty').value;
+        col = document.getElementById('tc').value;
+        cav.font = document.getElementById('ts').value + "px Arial";
+        cav.fillStyle = col;
         cav.fillText(textInput,x,y);
       }
       
@@ -32,11 +53,36 @@
         cav.clearRect(0, 0, img.width, img.height);
         paint();
       }
+
+      var canvas = document.getElementById("img");
+      var imgData = canvas.toDataURL("image/png");
+
+      function download() {
+        canvas = document.getElementById("img");
+        imgData = canvas.toDataURL("image/png");
+        imgData.download = "obrazek "+new Date().toLocaleTimeString()+".png"; /*TODO*/
+      }
+      
     </script>
 
     <br>
     <button type="button" onclick="paint()">Zrób</button>
     <button type="button" onclick="cav.clearRect(0, 0, img.width, img.height);" accesskey="R">Reset</button>
-        <br><a href="https://github.com/piw-piw/create-image">GitHub</a>
+
+    <button type="button" onclick="po(); paint();">Nie klikać</button><!--jeszcze nie działa-->
+
+    <!--<button type="button" onclick="download()">Pobierz</button>-->
+    <!--<a href=imgData><button>Pobierz</button></a>-->
+
+   <br>Napisz co chcesz, ustaw, kliknij <a title="Prawy Przycisk Myszy">PPM</a> w ramkę i skopiuj, albo zapisz obraz z przezroczystym tłem!
+    
+    <hr>inne niedziałające rzeczy<br>
+    <select>
+      <option>Ja</option>
+      <option>Ty</option>
+      <option>On/Ona/Ono</option
+    </select>
+    
+    
   </body>
 </html>
